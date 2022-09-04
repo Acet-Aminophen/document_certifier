@@ -47,4 +47,4 @@ if __name__ == '__main__':
 # iteration
 #
 # ex )
-# video1 "https://website/index_{NUMBERING}.ts" 0 3
+# "target.txt" "salt_message" 100000 20000

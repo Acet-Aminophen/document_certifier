@@ -57,6 +57,7 @@ if __name__ == '__main__':
 # salt string
 # unique number range(같은 문장의 경우 같은 값이 나오는 상황을 방지하기 위해 정해진 범위 내에 랜덤 값을 추가한다, 범위는 0이상 해당 숫자 미만)
 # iteration
+# output file location(optional)
 #
 # ex )
-# "target.txt" "salt_message" 100000 20000
+# "target.txt" "salt_message" 100000 20000 "output"

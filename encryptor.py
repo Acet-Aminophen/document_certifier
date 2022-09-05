@@ -60,4 +60,4 @@ if __name__ == '__main__':
 # output file location(optional)
 #
 # ex )
-# "target.txt" "salt_message" 100000 20000 "output"
+# "target.txt" "salt_message" 100 20000 "output"

@@ -1,9 +1,5 @@
 import sys
-import hashlib
-
-
-def sha256(str1: str):
-    return hashlib.sha256(str1.encode()).hexdigest()
+import hash
 
 
 def is_not_blank(str1: str):
@@ -62,7 +58,7 @@ def certify(org_file_location: str, encrypted_file_location: str, salt_str: str,
                 hashed_str = salted_str
                 print(hashed_str)
                 for l in range(iteration):
-                    hashed_str = sha256(hashed_str)
+                    hashed_str = hash.sha256(hashed_str)
 
                 # 증명된 경우
                 if hashed_str in encrypted_line_dict:

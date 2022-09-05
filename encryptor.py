@@ -1,12 +1,7 @@
-import hashlib
+import hash
 import random
 import sys
 import uuid
-
-
-def sha256(str1: str):
-    return hashlib.sha256(str1.encode()).hexdigest()
-
 
 def salt(org_str: str, salt_str: str, unique_number_range: int):
     unique_number = random.randrange(0, unique_number_range)
@@ -27,7 +22,7 @@ def encrypt(file_location: str, salt_str: str, unique_number_range: int, iterati
                 continue
             encryption_target = salt(i, salt_str, unique_number_range)
             for j in range(iteration):
-                encryption_target = sha256(encryption_target)
+                encryption_target = hash.sha256(encryption_target)
             result_output.append(encryption_target)
         uuid_str = str(uuid.uuid4())
 

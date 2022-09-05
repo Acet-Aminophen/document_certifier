@@ -42,6 +42,7 @@ def encrypt(file_location: str, salt_str: str, unique_number_range: int, iterati
         with open(result_file_location, "w") as outfile:
             outfile.write("\n".join(result_output))
 
+        print(uuid_str)
 
 if __name__ == '__main__':
     encrypt(sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5] + "\\" if len(sys.argv) > 5 else "")

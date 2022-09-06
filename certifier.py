@@ -44,29 +44,20 @@ def certify(org_file_location: str, encrypted_file_location: str, salt_str: str,
             
         # 원문이라 추측되는 글에 중복 개수 중 현재 몇 개를 만족시켰는지
         num_correct_for_dup = 0
-        # 위를 만족할 경우 탈출을 위한 플래그
-        flag = False
 
-        for j in range(len(i) + 1):
-            if flag:
-                break
+        for j in range(unique_number_range):
+            salted_str = i + "_" + salt_str + "_" + str(j)
+            hashed_str = salted_str
+            print(hashed_str)
+            for k in range(iteration):
+                hashed_str = hash.sha256(hashed_str)
 
-            i1 = i[:j]
-            i2 = i[j:]
-            for k in range(unique_number_range):
-                salted_str = i1 + "_" + salt_str + "_" + str(k) + "_" + i2
-                hashed_str = salted_str
-                print(hashed_str)
-                for l in range(iteration):
-                    hashed_str = hash.sha256(hashed_str)
-
-                # 증명된 경우
-                if hashed_str in encrypted_line_dict:
-                    encrypted_line_dict[hashed_str] = True
-                    num_correct_for_dup += 1
-                    if num_correct_for_dup == org_line_dict[i]:
-                        flag = True
-                        break
+            # 증명된 경우
+            if hashed_str in encrypted_line_dict:
+                encrypted_line_dict[hashed_str] = True
+                num_correct_for_dup += 1
+                if num_correct_for_dup == org_line_dict[i]:
+                    break
 
     len_correct = 0
     for i in encrypted_line_dict:
